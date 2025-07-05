@@ -8,7 +8,7 @@ multiple threads based on host system limits.
 Files
 =====
 File                         | Purpose
----------------------------- | ----------------------------------------------------------
+---------------------------- | ---------------------------------------------------
 Dockerfile                   | Container with OpenBLAS/numpy setup
 pthread_test.py              | Python script that triggers OpenBLAS pthread errors
 
@@ -21,9 +21,12 @@ How it works
 
 Build and Run
 =============
-1. Build the test container - docker build -t pthread-test .
-2. Run with severe resource constraints - docker run --rm --cpus="0.02" --memory="32m" --pids-limit=10 -e OPENBLAS_NUM_THREADS=16 pthread-test
-3. Run with normal constraints (no error) - docker run --rm pthread-test
+1. Build the test container 
+    - docker build -t pthread-test .
+2. Run with severe resource constraints 
+    - docker run --rm --cpus="0.02" --memory="32m" --pids-limit=10 -e OPENBLAS_NUM_THREADS=16 pthread-test
+3. Run with normal constraints (no error) 
+    - docker run --rm pthread-test
 
 Expected Output
 ===============
